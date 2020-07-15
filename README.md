@@ -37,8 +37,15 @@ Instead, it will copy all the configuration files and the transitive dependencie
 
 You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
 
-## Learn More
+### `注意事项`
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+项目用yarn来做包管理，如果在用npm做包管理的过程中，发现文件报错提示找不到类型声明文件
+请执行以下代码
+```bash
+rm package-lock.json
+rm -rf /node_modules
+yarn
+```
+本地IDE配置文件不要上传
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+项目采用react + typescript
