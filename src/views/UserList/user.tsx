@@ -1,5 +1,5 @@
 import React from "react";
-import { Layout, Breadcrumb, Tag, Space } from "antd";
+import { Layout, Breadcrumb } from "antd";
 import CustomForm from "../../components/Form";
 import CustomTable from "./Table";
 const { Content } = Layout;

@@ -1,10 +1,10 @@
-import React, { useState, useEffect } from "react";
-import { Layout, Menu, Breadcrumb } from "antd";
+import React, {  } from "react";
+import { Layout, Breadcrumb } from "antd";
 const { Content } = Layout;
 type a = number[] extends Array<infer v> ? v : "n";
 function useHello() {
-  const [msg, setMsg] = useState("world");
-  console.log(msg);
+//   const [msg, setMsg] = useState("world");
+//   console.log(msg);
   return (
     <div>
       <Content style={{ margin: "0 16px" }}>
@@ -12,7 +12,7 @@ function useHello() {
           <Breadcrumb.Item>User</Breadcrumb.Item>
           <Breadcrumb.Item>Bill</Breadcrumb.Item>
         </Breadcrumb>
-        hello ,{msg}
+        {/* hello ,{msg} */}
         <div
           className="site-layout-background"
           style={{ padding: 24, minHeight: 360 }}

@@ -1,9 +1,9 @@
-import { Layout, Menu, Breadcrumb, Avatar } from "antd";
+import { Layout, Menu, Avatar } from "antd";
 import {
   DesktopOutlined,
   PieChartOutlined,
   FileOutlined,
-  TeamOutlined,
+  // TeamOutlined,
   UserOutlined,
 } from "@ant-design/icons";
 import React, { useState } from "react";
@@ -11,8 +11,8 @@ import { Form, Switch } from "antd";
 // import styled from "styled-components";
 import { BrowserRouter, NavLink } from "react-router-dom";
 import CustomRouter from "../../router";
-import { Container, TopContainer, HeaderLoginStatus } from "./style";
-const { SubMenu } = Menu;
+import { Container, HeaderLoginStatus, H1Font } from "./style";
+// const { SubMenu } = Menu;
 const { Header, Sider, Footer } = Layout;
 enum ThemeOption {
   dark = "dark",
@@ -49,8 +49,8 @@ function Slider(props: {
     </Sider>
   );
 }
-function LayoutContent(props: { switchTheme: () => void }) {
-  const { switchTheme } = props;
+function LayoutContent() {
+  // const { switchTheme } = props;
   // console.log(switchTheme);
   return (
     <Layout className="site-layout">
@@ -86,6 +86,7 @@ function useNav() {
               ThemeOption.light === theme ? "#fff" : "rgb(0 21 41)",
           }}
         >
+          <H1Font>PMA Management System</H1Font>
           <Header className="site-layout-background">
             <Form>
               <Form.Item label="Switch Theme">
@@ -110,7 +111,7 @@ function useNav() {
             setCollapse={setCollapse}
             theme={theme}
           ></Slider>
-          <LayoutContent switchTheme={switchTheme} />
+          <LayoutContent  />
         </Layout>
       </Container>
     </BrowserRouter>

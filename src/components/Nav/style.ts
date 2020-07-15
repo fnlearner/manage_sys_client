@@ -25,23 +25,31 @@ export const TopContainer = styled.div`
     outline: 0;
     text-decoration: none;
   }
-
 `;
 
 export const HeaderLoginStatus = styled.div`
   display: flex;
   justify-content: space-between;
-  background-color:#fff;
-  & > header{
-    background-color:transparent;
+  background-color: #fff;
+  & > header {
+    background-color: transparent;
   }
-  & label{
-      color:${props=>props.theme === 'dark'?'#fff':''};
+  & label {
+    color: ${(props) => (props.theme === "dark" ? "#fff" : "")};
   }
   & > span {
     line-height: 15px;
     margin: 15px;
-    &:hover{
-    }  
+    &:hover {
+    }
   }
+`;
+export const H1Font = styled.h1`
+   color: #fafafa;
+
+  letter-spacing: 0;
+
+   text-shadow: 0px 1px 0px #999, 0px 2px 0px #888, 0px 3px 0px #777,
+    0px 4px 0px #666, 0px 5px 0px #555, 0px 6px 0px #444, 0px 7px 0px #333,
+    0px 8px 7px #001135;
 `;
