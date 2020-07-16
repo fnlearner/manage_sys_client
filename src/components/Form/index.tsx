@@ -11,6 +11,7 @@ import {
   TreeSelect,
   Switch,
 } from "antd";
+import { rShow } from "../../util";
 // import React from 'react'
 enum SizeEnum {
   small = "small",
@@ -46,11 +47,14 @@ function CustomForm() {
         <Form.Item label="Input">
           <Input />
         </Form.Item>
-        <Form.Item label="Select">
-          <Select>
-            <Select.Option value="demo">Demo</Select.Option>
-          </Select>
-        </Form.Item>
+        {rShow(
+          true,
+          <Form.Item label="Select">
+            <Select>
+              <Select.Option value="demo">Demo</Select.Option>
+            </Select>
+          </Form.Item>
+        )}
         <Form.Item label="TreeSelect">
           <TreeSelect
             treeData={[
