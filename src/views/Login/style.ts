@@ -5,6 +5,8 @@ export const Container = styled.div`
     display:flex;
     justify-content:center;
     align-items:center;
+    overflow:hidden;
+    flex:1;
 `
 
 export const InlineBox = styled.div`

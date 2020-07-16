@@ -49,3 +49,18 @@ yarn
 本地IDE配置文件不要上传
 
 项目采用react + typescript
+
+### `TO DO LIST`
+
+redux 和 react-redux的配置
+登陆信息过期处理
+样式表
+自定义webpack配置
+登陆界面UI
+
+### `DONE`
+
+登陆界面的FRAMEWORK
+路由切换
+FORM TEMPLET
+TABLE TEMPLET
