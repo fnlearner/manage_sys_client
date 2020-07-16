@@ -24,15 +24,17 @@ function Slider(props: {
   theme: ThemeOption.dark | ThemeOption.light;
 }) {
   const { collapse, setCollapse, theme } = props;
+  const defaultSelectedKeys = window.location.pathname.slice(1)
+  // console.log(defaultSelectedKeys)
   return (
     <Sider collapsed={collapse} onCollapse={setCollapse} theme={theme}>
       <div className="logo" />
       {/* <TopContainer>PMA 后台管理系统</TopContainer> */}
-      <Menu theme={theme} defaultSelectedKeys={["1"]} mode="inline">
-        <Menu.Item key="1" icon={<PieChartOutlined />}>
-          <NavLink to="/">地址列表</NavLink>
+      <Menu theme={theme} defaultSelectedKeys={[defaultSelectedKeys]} mode="inline">
+        <Menu.Item key="addr" icon={<PieChartOutlined />}>
+          <NavLink to="/addr">地址列表</NavLink>
         </Menu.Item>
-        <Menu.Item key="2" icon={<DesktopOutlined />}>
+        <Menu.Item key="user" icon={<DesktopOutlined />}>
           <NavLink to="/user">用户列表</NavLink>
         </Menu.Item>
         {/* <SubMenu key="sub1" icon={<UserOutlined />} title="User">

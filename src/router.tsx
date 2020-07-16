@@ -26,9 +26,9 @@ const Routes = withRouter(({ location, history }) => {
         <Container>
           <Switch location={location}>
             {/* <Route path='login' component={Login.apply(null,submit)}/> */}
-            <Route path="/" exact component={Hello}></Route>
+            <Route path="/addr" exact component={Hello}></Route>
             <Route path="/user" exact component={UserList}></Route>
-            <Redirect to="/"></Redirect>
+            <Redirect to="/addr"></Redirect>
           </Switch>
         </Container>
       </CSSTransition>
