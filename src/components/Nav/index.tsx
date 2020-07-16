@@ -61,13 +61,17 @@ function LayoutContent() {
 
 function useNav() {
   const [collapse, setCollapse] = useState(false);
-  const [theme, changeTheme] = useState(ThemeOption.light);
-  // console.log(theme === ThemeOption.light)
+  const localTheme = window.localStorage.getItem('theme') as any
+  const [theme, changeTheme] = useState(localTheme??ThemeOption.light);
+  // if(localTheme){
+  //   changeTheme(localTheme)
+  // }
   const switchTheme = () => {
-    // console.log(theme)
     if (theme === ThemeOption.light) {
+      window.localStorage.setItem('theme',ThemeOption.dark)
       changeTheme(ThemeOption.dark);
     } else {
+      window.localStorage.setItem('theme',ThemeOption.light)
       changeTheme(ThemeOption.light);
     }
   };
@@ -87,7 +91,7 @@ function useNav() {
           <Header className="site-layout-background">
             <Form>
               <Form.Item label="Switch Theme">
-                <Switch onClick={switchTheme} />
+                <Switch onClick={switchTheme} defaultChecked={ThemeOption.dark === theme} />
               </Form.Item>
             </Form>
           </Header>
