@@ -11,5 +11,5 @@ export const Container = styled.div`
 
 export const InlineBox = styled.div`
     padding:10px;
-    margin:10px
+    margin:10px;
 `

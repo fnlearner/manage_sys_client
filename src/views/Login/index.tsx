@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
-import { Form, Input, Button, Checkbox } from "antd";
+import { Form, Input, Button, Checkbox} from "antd";
 import { Container, InlineBox } from "./style";
+import Coffee from "../../components/Coffee";
 const layout = {
   labelCol: { span: 8 },
   wrapperCol: { span: 16 },
@@ -32,7 +33,7 @@ const Login = (props: { submit: (val: any) => void }) => {
   };
   return (
     <Container>
-      <InlineBox>
+      <InlineBox>    
         <Form
           {...layout}
           name="basic"
@@ -67,6 +68,7 @@ const Login = (props: { submit: (val: any) => void }) => {
           </Form.Item>
         </Form>
       </InlineBox>
+      <Coffee />
     </Container>
   );
 };
