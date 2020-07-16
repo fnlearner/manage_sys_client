@@ -9,6 +9,7 @@ export const Container = styled.div`
   .site-layout .site-layout-background {
     background: #fff;
   }
+  overflow:hidden;
 `;
 export const TopContainer = styled.div`
   color: #108ee9;

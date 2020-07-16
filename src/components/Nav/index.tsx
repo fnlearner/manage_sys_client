@@ -50,15 +50,12 @@ function Slider(props: {
   );
 }
 function LayoutContent() {
-  // const { switchTheme } = props;
-  // console.log(switchTheme);
   return (
-    <Layout className="site-layout">
-      <CustomRouter />
-      <Footer style={{ textAlign: "center" }}>
-        Ant Design ©2018 Created by Ant UED
-      </Footer>
-    </Layout>
+    <>
+      <Layout className="site-layout" style={{ position: "relative" }}>
+        <CustomRouter />
+      </Layout>
+    </>
   );
 }
 
@@ -111,8 +108,11 @@ function useNav() {
             setCollapse={setCollapse}
             theme={theme}
           ></Slider>
-          <LayoutContent  />
+          <LayoutContent />
         </Layout>
+        <Footer style={{ textAlign: "center" }}>
+          Ant Design ©2018 Created by Ant UED
+        </Footer>
       </Container>
     </BrowserRouter>
   );
