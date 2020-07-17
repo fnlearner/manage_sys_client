@@ -11,8 +11,6 @@ enum ANIMATION_MAP {
   REPLACE = "replace",
 }
 const Routes = withRouter(({ location, history }) => {
-  // console.log(history);
-  // history.replace('/')
   return (
     <TransitionGroup
       className={"router-wrapper"}

@@ -37,3 +37,48 @@
     transform: rotate(360deg);
   }
 }
+.login-enter {
+  opacity: 0;
+  transform: translateY(100%);
+}
+
+.login-enter-active {
+  opacity: 1;
+  transform: translateY(0);
+  transition: all 500ms;
+}
+
+.login-exit {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.login-exit-active {
+  opacity: 0;
+  transform: translateY(100%);
+  transition: all 500ms;
+}
+
+
+.out-enter {
+  opacity: 0;
+  transform: translateY(-100%);
+}
+
+.out-enter-active {
+  opacity: 1;
+  transform: translateY(0);
+  transition: all 500ms;
+}
+
+.out-exit {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.out-exit-active {
+  opacity: 0;
+  transform: translateY(-100%);
+  transition: all 500ms;
+}
+

@@ -5,6 +5,7 @@ import Nav from "./components/Nav";
 import "antd/dist/antd.css";
 import Login from "./views/Login";
 import { connect } from "react-redux";
+import { CSSTransition, SwitchTransition } from "react-transition-group";
 function renderComponent(isLogin: boolean) {
   return isLogin ? <Nav /> : <Login />;
 }
@@ -19,9 +20,24 @@ const App = (props: mapStateToPropsType & any) => {
   const { isLogin } = props;
   // // let component =
   useEffect(() => {
-    console.log("isLogin:", isLogin);
+    // console.log("isLogin:", isLogin);
   }, [isLogin]);
   const component = renderComponent(isLogin);
-  return <div className="app">{component}</div>;
+
+  return (
+    <div className="app">
+      <SwitchTransition>
+        <CSSTransition
+          key={isLogin}
+          addEndListener={(node, done) =>
+            node.addEventListener("transitionend", done, false)
+          }
+          classNames={isLogin?'login':'out'}
+        >
+          {component}
+        </CSSTransition>
+      </SwitchTransition>
+    </div>
+  );
 };
 export default connect(mapStateToProps)(React.memo(App));

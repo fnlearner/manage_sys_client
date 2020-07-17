@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import {
+  Modal,
   Form,
   Input,
   Button,
@@ -27,8 +28,15 @@ function CustomForm() {
   const onFormLayoutChange = ({ size }: { size: SizeType }) => {
     setComponentSize(size);
   };
+  const [modal, setmodal] = useState(false)
   return (
     <>
+      <Modal
+        title="Basic Modal"
+        visible={modal}
+        onCancel={()=>setmodal(false)}
+      >
+      </Modal>
       <Form
         labelCol={{ span: 4 }}
         wrapperCol={{ span: 14 }}
@@ -92,7 +100,7 @@ function CustomForm() {
           <Switch />
         </Form.Item>
         <Form.Item label="Button">
-          <Button>Button</Button>
+          <Button onClick={()=>setmodal(!modal)}>Button</Button>
         </Form.Item>
       </Form>
     </>
