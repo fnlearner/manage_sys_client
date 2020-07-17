@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from "react";
-import { Form, Input, Button, Checkbox} from "antd";
+import { Form, Input, Button, Checkbox } from "antd";
 import { Container, InlineBox } from "./style";
 import Coffee from "../../components/Coffee";
+import { connect } from "react-redux";
+import { submitLogin } from "./store/actionCreator";
 const layout = {
   labelCol: { span: 8 },
   wrapperCol: { span: 16 },
@@ -12,33 +14,46 @@ const tailLayout = {
 
 const onFinish = (submit: any, values: unknown) => {
   // console.log(typeof submit)
-  if (!values) return false;
-  submit(true);
+  // if (!values) return false;
+  const { username, password } = values as any;
+  submit({
+    username,
+    password,
+  });
   console.log("Success:", values);
 };
 
 const onFinishFailed = (errorInfo: unknown) => {
   console.log("Failed:", errorInfo);
-  if (errorInfo) return false;
+  // if (errorInfo) return false;
 };
 
-const Login = (props: { submit: (val: any) => void }) => {
+type stateType = ReturnType<typeof mapStateToProps>;
+type dispatchType = ReturnType<typeof mapDispatchToProps>;
+
+type CustomPropsType = stateType & dispatchType;
+const Login = (props: CustomPropsType) => {
   const [inputval, setinputval] = useState("");
   useEffect(() => {
     console.log(inputval);
   }, [inputval]);
-
   const changeInputVal = (e: React.ChangeEvent<HTMLInputElement>) => {
     setinputval(e.target.value);
   };
+  const { submitLoginDispatch } = props;
+
+  // const {isLogin} =props
+  // useEffect(()=>{
+  //   console.log(isLogin)
+  // },[isLogin])
   return (
     <Container>
-      <InlineBox>    
+      <InlineBox>
         <Form
           {...layout}
           name="basic"
           initialValues={{ remember: true }}
-          onFinish={onFinish.bind(null, props.submit)}
+          onFinish={onFinish.bind(null, submitLoginDispatch)}
           onFinishFailed={onFinishFailed}
         >
           <Form.Item
@@ -72,5 +87,14 @@ const Login = (props: { submit: (val: any) => void }) => {
     </Container>
   );
 };
-
-export default Login;
+const mapStateToProps = ({ reducer }: any) => ({
+  isLogin: reducer?.isLoginReducer?.isLogin
+});
+const mapDispatchToProps = (dispatch: any) => {
+  return {
+    submitLoginDispatch(param: any) {
+      dispatch(submitLogin(param));
+    },
+  };
+};
+export default connect(mapStateToProps, mapDispatchToProps)(React.memo(Login));

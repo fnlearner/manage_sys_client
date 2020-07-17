@@ -1,0 +1,2 @@
+export const IS_LOGIN = 'IS_LOGIN'
+export const CHANGE_ENTER_LOADING = 'CHANGE_ENTER_LOADING'

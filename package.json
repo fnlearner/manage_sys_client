@@ -15,6 +15,9 @@
     "@types/react-transition-group": "^4.4.0",
     "@types/styled-components": "^5.1.1",
     "antd": "^4.4.2",
+    "axios": "^0.19.2",
+    "core-js": "3",
+    "immutable": "^4.0.0-rc.12",
     "node-sass": "^4.14.1",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
@@ -22,6 +25,8 @@
     "react-router-dom": "^5.2.0",
     "react-scripts": "3.4.1",
     "react-transition-group": "^4.4.1",
+    "redux-immutable": "^4.0.0",
+    "redux-thunk": "^2.3.0",
     "styled-components": "^5.1.1",
     "typescript": "^3.9.6"
   },

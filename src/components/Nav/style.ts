@@ -41,8 +41,7 @@ export const HeaderLoginStatus = styled.div`
   & > span {
     line-height: 15px;
     margin: 15px;
-    &:hover {
-    }
+    margin-right:20px;
   }
 `;
 export const H1Font = styled.h1`

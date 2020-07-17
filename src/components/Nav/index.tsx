@@ -1,17 +1,15 @@
-import { Layout, Menu, Avatar } from "antd";
+import { Layout, Menu, Form, Switch } from "antd";
 import {
   DesktopOutlined,
   PieChartOutlined,
   FileOutlined,
-  // TeamOutlined,
-  UserOutlined,
 } from "@ant-design/icons";
 import React, { useState } from "react";
-import { Form, Switch } from "antd";
 // import styled from "styled-components";
-import { BrowserRouter, NavLink } from "react-router-dom";
+import {  NavLink } from "react-router-dom";
 import CustomRouter from "../../router";
 import { Container, HeaderLoginStatus, H1Font } from "./style";
+import CustomAvatar from "./components/Avatar";
 // const { SubMenu } = Menu;
 const { Header, Sider, Footer } = Layout;
 enum ThemeOption {
@@ -24,13 +22,17 @@ function Slider(props: {
   theme: ThemeOption.dark | ThemeOption.light;
 }) {
   const { collapse, setCollapse, theme } = props;
-  const defaultSelectedKeys = window.location.pathname.slice(1)
+  const defaultSelectedKeys = window.location.pathname.slice(1);
   // console.log(defaultSelectedKeys)
   return (
     <Sider collapsed={collapse} onCollapse={setCollapse} theme={theme}>
       <div className="logo" />
       {/* <TopContainer>PMA 后台管理系统</TopContainer> */}
-      <Menu theme={theme} defaultSelectedKeys={[defaultSelectedKeys]} mode="inline">
+      <Menu
+        theme={theme}
+        defaultSelectedKeys={[defaultSelectedKeys]}
+        mode="inline"
+      >
         <Menu.Item key="addr" icon={<PieChartOutlined />}>
           <NavLink to="/addr">地址列表</NavLink>
         </Menu.Item>
@@ -63,22 +65,22 @@ function LayoutContent() {
 
 function useNav() {
   const [collapse, setCollapse] = useState(false);
-  const localTheme = window.localStorage.getItem('theme') as any
-  const [theme, changeTheme] = useState(localTheme??ThemeOption.light);
+  const localTheme = window.localStorage.getItem("theme") as any;
+  const [theme, changeTheme] = useState(localTheme ?? ThemeOption.light);
   // if(localTheme){
   //   changeTheme(localTheme)
   // }
   const switchTheme = () => {
     if (theme === ThemeOption.light) {
-      window.localStorage.setItem('theme',ThemeOption.dark)
+      window.localStorage.setItem("theme", ThemeOption.dark);
       changeTheme(ThemeOption.dark);
     } else {
-      window.localStorage.setItem('theme',ThemeOption.light)
+      window.localStorage.setItem("theme", ThemeOption.light);
       changeTheme(ThemeOption.light);
     }
   };
   return (
-    <BrowserRouter>
+    <>
       <Container>
         <HeaderLoginStatus
           theme={theme}
@@ -93,16 +95,14 @@ function useNav() {
           <Header className="site-layout-background">
             <Form>
               <Form.Item label="Switch Theme">
-                <Switch onClick={switchTheme} defaultChecked={ThemeOption.dark === theme} />
+                <Switch
+                  onClick={switchTheme}
+                  defaultChecked={ThemeOption.dark === theme}
+                />
               </Form.Item>
             </Form>
           </Header>
-          <span>
-            <Avatar
-              style={{ backgroundColor: "#87d068" }}
-              icon={<UserOutlined />}
-            />
-          </span>
+          <CustomAvatar />
         </HeaderLoginStatus>
         <Layout
           style={{
@@ -120,7 +120,7 @@ function useNav() {
           Ant Design ©2018 Created by Ant UED
         </Footer>
       </Container>
-    </BrowserRouter>
+    </>
   );
 }
 export default React.memo(useNav);

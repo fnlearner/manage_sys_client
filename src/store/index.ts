@@ -1,9 +1,8 @@
 import { applyMiddleware, createStore, compose, combineReducers } from "redux";
-const initState = {
-  Sidebar: "",
-  Login: "",
-};
-let middleware = applyMiddleware();
+import reducer from './reducer'
+import thunk from 'redux-thunk'
+
+// let middleware = applyMiddleware();
 const composeEnhancers =
   process.env.NODE_ENV !== "production" &&
   typeof window === "object" &&
@@ -13,17 +12,14 @@ const composeEnhancers =
       })
     : compose;
 const enhancer = composeEnhancers(
-  middleware
+  applyMiddleware(thunk)
   // other store enhancers if any
 );
-const reducers = {
-    Sidebar: ()=>{
-        return initState.Sidebar
-    },
-    Login:()=>{
-        return initState.Login
-    },
-  };
-const store = createStore(combineReducers(reducers), initState, enhancer);
+const store = createStore(
+  combineReducers({
+    reducer
+  }),
+  enhancer
+);
 
 export default store;

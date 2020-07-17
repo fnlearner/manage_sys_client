@@ -1,5 +1,4 @@
 import React from "react";
-// import {Container} from './style'
 import './index.scss'
 const Coffee = () => {
   return (
