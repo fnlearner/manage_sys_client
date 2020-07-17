@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
@@ -64,3 +65,7 @@ redux 和 react-redux的配置
 路由切换
 FORM TEMPLET
 TABLE TEMPLET
+=======
+# manage_sys_client
+sys_client
+>>>>>>> b80135710e23d24b8db782fb3bbca6d63da888af
