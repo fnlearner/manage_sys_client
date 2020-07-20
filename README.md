@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
@@ -54,18 +53,22 @@ yarn
 ### `TO DO LIST`
 
 redux 和 react-redux的配置
+
 登陆信息过期处理
+
 样式表
+
 自定义webpack配置
+
 登陆界面UI
+
 
 ### `DONE`
 
 登陆界面的FRAMEWORK
 路由切换
+
 FORM TEMPLET
+
 TABLE TEMPLET
-=======
-# manage_sys_client
-sys_client
->>>>>>> b80135710e23d24b8db782fb3bbca6d63da888af
+
